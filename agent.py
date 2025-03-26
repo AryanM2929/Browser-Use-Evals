@@ -1,13 +1,18 @@
-class BrowserUseAgent:
-    def __init__(self, model="gpt-4o", browser=None):
-        self.model = model
+"""
+Controller module for browser use evaluation.
+"""
+
+class Controller:
+    def __init__(self, browser=None, agent=None):
         self.browser = browser
-        print(f"Initialized BrowserUseAgent with model: {model}")
+        self.agent = agent
+        print("Initialized Controller")
         
-    def run(self, instruction):
+    def execute(self, instruction):
         """
-        Run the agent with the given instruction.
+        Execute an instruction using the agent and browser.
         """
-        print(f"Running instruction: {instruction}")
-        # This is a placeholder implementation
-        return f"Executed: {instruction}"
+        print(f"Controller executing: {instruction}")
+        if self.agent:
+            return self.agent.run(instruction)
+        return "Agent not initialized"
